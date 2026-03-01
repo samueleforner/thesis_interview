@@ -39,7 +39,7 @@ The dataset presented missing values:
 - One Hot Encoding has been applied on the State column, keeping only the 3 most frequent states and grouping the remaining under 'Other', a similar approach is used also for the Airport Code
 - Before One Hot Encoding, duplicates are removed from Wind Direction
 - Significant terms are extracted from the attributes 'Weather Conditions' 
-- At first, the Description column were completely dropped. With later refinements the most frequent words were extracted from the columns and their presence in the description of each row has been one hot encoded. This alone resulted in an F1-score incrase from around 0.41 to 0.6
+- At first, the Description column were completely dropped. With later refinements the most frequent words were extracted from the columns and their presence in the description of each row has been one hot encoded. This alone resulted in an F1-score incrase from around 0.41 to 0.68
 
 ## Data Splitting
 Attributes usefull for inference and targets are spearated, the the first ones are splitted in train, validation and test set.
@@ -55,10 +55,10 @@ The preformance measure observed is the macro F1-score
 - Random Forest (both Classifier and Regressor) yields the best results: bagging helped to reduce variance and trees are able to model non-linear relationships,  where the previous model failed
 - Searching for better performance, Gradient Boosting was the next most promising option, both Hist Gradient Boosting and XGBoost have been tried, but without any sensible gain
 
-As final model the Random Forest Regressor has been chosen instead of the correspective Classifier, but the performance are very similar (Macro F1-score around 60% on the test set)
+As final model the Random Forest Regressor has been chosen instead of the correspective Classifier, but the performance are very similar (Macro F1-score around 68% on the test set)
 
 # Feature Importance
 
-In a Random Forest model the importance that a feature had in the predictions can be estimated as the mean reduction of impurity in the dataset when the trees split on that attribute. For our model the most important attributes result to be the presence of the word 'closed' and 'exit' in the description, the distance ran by the vehicle, the presence of the word 'lane', the duration of the accident in seconds. Less important but still not negligible are the precipitations and wind temperature. It's interesting to notice that a similar importance can be observed for the month when the accident was recorded, the most plausible theory is that this is directly linked to the typical weather. 
+In a Random Forest model the importance that a feature had in the predictions can be estimated as the mean reduction of impurity in the dataset when the trees split on that attribute. For our model the most important attributes result to be the presence of the word 'closed', 'exit', 'crash', 'lane' in the description, the distance ran by the vehicle, the duration of the accident in seconds. Less important but still not negligible are the precipitations and wind temperature.
 
 Further analysis using Shapley Additive Explanations (SHAP) provided similar results
