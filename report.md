@@ -55,7 +55,7 @@ The preformance measure observed is the macro F1-score
 - Random Forest (both Classifier and Regressor) yields the best results: bagging helped to reduce variance and trees are able to model non-linear relationships,  where the previous model failed
 - Searching for better performance, Gradient Boosting was the next most promising option, both Hist Gradient Boosting and XGBoost have been tried, but without any sensible gain
 
-As final model the Random Forest Regressor has been chosen instead of the correspective Classifier, but the performance are very similar
+As final model the Random Forest Regressor has been chosen instead of the correspective Classifier, but the performance are very similar (Macro F1-score around 60% on the test set)
 
 # Feature Importance
 
