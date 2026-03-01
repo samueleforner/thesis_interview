@@ -44,8 +44,6 @@ The dataset presented missing values:
 ## Data Splitting
 Attributes usefull for inference and targets are spearated, the the first ones are splitted in train, validation and test set.
 
-The Description column has been dropped, but further improvement could make use of it, using an embedding system to extract useful informations
-
 ## Model Selection
 Note that the targets were severely imbalanced towards class 2. This is the major factor that affected all the models' performances, to partially reduce this phenomenon, all the models, during traning, weight more errors caused by missclassification of under-represented classes.
 
